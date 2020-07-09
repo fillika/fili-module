@@ -1,0 +1,76 @@
+.fw-bold {
+    font-weight: bold;
+}
+
+.tt {
+    &-up {
+        text-transform: uppercase;
+    }
+}
+
+.fw {
+    &-bold {
+        font-weight: bold;
+    }
+}
+
+.fs {
+    &-italic {
+        font-style: italic;
+    }
+}
+
+.ta {
+    &-center {
+        text-align: center;
+    }
+
+    &-right {
+        text-align: right;
+    }
+}
+
+.mt {
+    &-1 {
+        margin-top: 1em;
+    }
+
+    &-2 {
+        margin-top: 2em;
+    }
+
+    &-3 {
+        margin-top: 3em;
+    }
+
+    &-4 {
+        margin-top: 4em;
+    }
+
+    &-5 {
+        margin-top: 5em;
+    }
+}
+
+.mb {
+    &-1 {
+        margin-bottom: 1em;
+    }
+
+    &-2 {
+        margin-bottom: 2em;
+    }
+
+    &-3 {
+        margin-bottom: 3em;
+    }
+
+    &-4 {
+        margin-bottom: 4em;
+    }
+
+    &-5 {
+        margin-bottom: 5em;
+    }
+}
+

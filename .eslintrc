@@ -1,0 +1,32 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "airbnb/base"
+    ],
+    "rules": {
+        "no-console": "error",
+        "arrow-parens": "off",
+        "indent": [
+            "error",
+            2
+        ],
+        "max-len": [
+            "error",
+            120
+        ],
+        "require-jsdoc": "off",
+        "operator-linebreak": "off",
+        "no-unused-vars": "warn",
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "import/no-unresolved": "off",
+        "object-curly-spacing": ["error", "always"],
+        "react/prop-types": 0
+    }
+}
