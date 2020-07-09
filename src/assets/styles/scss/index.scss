@@ -4,67 +4,67 @@
 @import '~@styles/css/fonts.css';
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    line-height: 1.25;
-    font-family: Ubuntu, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1.25;
+  font-family: Ubuntu, sans-serif;
 }
 
 body, html {
-    font-size: calc(13px + 100vw / 141);
+  font-size: calc(13px + 100vw / 141);
 
-    @include minWidth($large) {
-        font-size: calc(10px + 100vw / 141);
-    }
+  @include minWidth($large) {
+    font-size: calc(10px + 100vw / 141);
+  }
 
-    @include minWidth(1440px) {
-        font-size: 20px;
-    }
+  @include minWidth(1440px) {
+    font-size: 20px;
+  }
 }
 
 a {
-    text-decoration: none;
-    display: inline-block;
+  text-decoration: none;
+  display: inline-block;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 .visually-hidden {
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0 !important;
-    border: 0 !important;
-    height: 1px !important;
-    width: 1px !important;
-    overflow: hidden;
-    display: none !important;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+  display: none !important;
 }
 
 .cat {
-    width: 400px;
-    height: 400px;
-    background-image: url('~@img/cat.webp');
-    background-size: cover;
+  width: 400px;
+  height: 400px;
+  background-image: url('~@img/cat.webp');
+  background-size: cover;
 }
 
 .instagram {
-    width: 400px;
-    height: 400px;
-    background-image: url('~@img/instagram.png');
-    background-size: cover;
+  width: 400px;
+  height: 400px;
+  background-image: url('~@img/instagram.png');
+  background-size: cover;
 }
 
 .jpeg {
-    width: 400px;
-    height: 400px;
-    background-image: url('~@img/jpeg.jpg');
-    background-size: cover;
+  width: 400px;
+  height: 400px;
+  background-image: url('~@img/jpeg.jpg');
+  background-size: cover;
 }
