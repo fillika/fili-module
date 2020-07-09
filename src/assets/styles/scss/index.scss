@@ -1,16 +1,17 @@
 @import 'vars';
 @import 'mixins';
 @import 'atomic';
+@import '~@styles/css/fonts.css';
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     line-height: 1.25;
+    font-family: Ubuntu, sans-serif;
 }
 
 body, html {
-    font-family: Arial, sans-serif;
     font-size: calc(13px + 100vw / 141);
 
     @include minWidth($large) {

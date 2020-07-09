@@ -87,7 +87,8 @@ module.exports = {
       '@scripts': path.resolve(__dirname, './src/assets/scripts/'),
       '@styles': path.resolve(__dirname, './src/assets/styles/'),
       '@img': path.resolve(__dirname, './src/assets/media/img/'),
-      '@files': path.resolve(__dirname, './src/assets/media/files/'),
+      '@files': path.resolve(__dirname, './src/assets/files/'),
+      '@fonts': path.resolve(__dirname, './src/assets/media/fonts/'),
     },
   },
   plugins: [
