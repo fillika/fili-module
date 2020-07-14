@@ -4,8 +4,17 @@ html(lang='ru')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
-    title PUG
+    title Modal
   body
     include ../partials/header
-    h1 Hello PUG
+    h1 Modal
+    button(data-modal-button='modal-one' id='modal-one') Жми
+    button(data-modal-button='modal-two' id='modal-two') Жми еще
+    div(class='fili-modal' data-modal-id='modal-one')
+      div(class='fili-modal__content' data-modal='content') Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea error est eum fugit hic incidunt maxime nobis odit perferendis quae quasi qui quibusdam quisquam sequi voluptas, voluptate. Eveniet excepturi facilis nesciunt quia tenetur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea error est eum fugit hic incidunt maxime nobis odit perferendis quae quasi qui quibusdam quisquam sequi voluptas, voluptate. Eveniet excepturi facilis nesciunt quia tenetur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea error est eum fugit hic incidunt maxime nobis odit perferendis quae quasi qui quibusdam quisquam sequi voluptas, voluptate. Eveniet excepturi facilis nesciunt quia tenetur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea error est eum fugit hic incidunt maxime nobis odit perferendis quae quasi qui quibusdam quisquam sequi voluptas, voluptate. Eveniet excepturi facilis nesciunt quia tenetur.
+
+    div(class='fili-modal' data-modal-id='modal-two')
+      div(class='fili-modal__content' data-modal='content') Тут совсем другой лорем
+
+
     include ../partials/footer

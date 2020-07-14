@@ -1,16 +1,43 @@
-import './engine/Loader';
-
-declare const GameEngine;
-
 document.addEventListener('DOMContentLoaded', () => {
-  const loader = new GameEngine.Loader();
 
-  loader.addImage('First image', '/src/assets/media/img/jpeg.jpg');
-  loader.addJson('persons', '/src/assets/files/json/persons.json');
+  createModal('modal-one', true);
+  createModal('modal-two');
 
-  loader.load(() => {
-    console.log('Images loaded');
-  });
+  function createModal(id, show: boolean = false): void {
+    const btn: HTMLElement = document.getElementById(id);
+    const modal: HTMLElement = document.querySelector(`[data-modal-id=${ id }]`);
 
-  console.log(loader);
+    if (!btn) return;
+
+    /**
+     * Объект, в котором содержится бизнес-логика
+     */
+    const _mainFuncs = {
+      showModal() {
+        modal.classList.remove('fili-modal--is-hidden');
+        modal.classList.add('fili-modal--is-visible');
+        _mainFuncs.createOverlay();
+      },
+      createOverlay() {
+        const div = document.createElement('div');
+        div.classList.add('fili-overlay');
+        document.body.appendChild(div);
+
+        div.addEventListener('click', (e) => {
+          modal.classList.add('fili-modal--is-hidden');
+          modal.classList.remove('fili-modal--is-visible');
+          _mainFuncs.destroyOverlay(div);
+        });
+      },
+      destroyOverlay(el: HTMLElement) {
+        document.body.removeChild(el);
+      },
+    };
+
+    if (show) {
+      _mainFuncs.showModal();
+    }
+
+    btn.addEventListener('click', _mainFuncs.showModal);
+  }
 });

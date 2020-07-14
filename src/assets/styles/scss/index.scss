@@ -48,23 +48,102 @@ img {
   display: none !important;
 }
 
-.cat {
-  width: 400px;
-  height: 400px;
-  background-image: url('~@img/cat.webp');
-  background-size: cover;
+.fili-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-width: 800px;
+  height: 500px;
+  display: none;
+  max-height: 70%;
+  overflow-y: scroll;
+  animation-duration: $mainTransition;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  z-index: 10000;
+
+  &--is-hidden {
+    display: block;
+    animation-name: hideModal;
+  }
+
+  &--is-visible {
+    display: block;
+    animation-name: showModal;
+  }
+
+  &__content {
+    height: auto;
+    background-color: #fff;
+    padding: 1em;
+  }
 }
 
-.instagram {
-  width: 400px;
-  height: 400px;
-  background-image: url('~@img/instagram.png');
-  background-size: cover;
+.fili-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  animation-fill-mode: forwards;
+  animation-duration: $mainTransition;
+  z-index: 9000;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
 }
 
-.jpeg {
-  width: 400px;
-  height: 400px;
-  background-image: url('~@img/jpeg.jpg');
-  background-size: cover;
+@keyframes hideModal {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -75%);
+    opacity: 0;
+  }
+}
+
+@keyframes showModal {
+  from {
+    transform: translate(-50%, -75%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes hideFade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes showFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fuckDIsplay {
+  from {
+    visibility: visible;
+  }
+  to {
+    visibility: hidden;
+    pointer-events: none;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+  }
 }
