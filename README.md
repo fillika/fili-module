@@ -4,8 +4,8 @@
 
 Модальное окно создается по шаблону  
 
-
-```<div  
+```
+<div  
     class='fili-modal'  
     data-modal-id='modal-two'>  
     <span  
@@ -15,7 +15,8 @@
         class='fili-modal__content'  
         data-modal='content'> Контент  
     </div>  
-</div>  ```
+</div>  
+```
       
 Модификатор data-modal-show="true" определяет, будет ли модальное окно показываться при загрузке страницы
 
