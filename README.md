@@ -2,11 +2,10 @@
 Общий шаблон модального окна. Работает вплоть до IE 11.
 Содержит в себе полифилл для IE 11 forEach.
 
-Модальное окно создается по шаблону
-
-` | div(class='fili-modal' data-modal-id='modal-one' data-modal-show="true")     
-  |-- span(class='fili-modal__close-btn' data-modal-close='close')  
-  |-- div(class='fili-modal__content' data-modal='content') Контент`
+Модальное окно создается по шаблону  
+| div(class='fili-modal' data-modal-id='modal-one' data-modal-show="true")  
+|-- span(class='fili-modal__close-btn' data-modal-close='close')  
+|-- div(class='fili-modal__content' data-modal='content') Контент
       
 Модификатор data-modal-show="true" определяет, будет ли модальное окно показываться при загрузке страницы
 
