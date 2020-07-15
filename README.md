@@ -5,9 +5,17 @@
 Модальное окно создается по шаблону  
 
 
-|- div(class='fili-modal' data-modal-id='modal-one' data-modal-show="true")  
--|--- span(class='fili-modal__close-btn' data-modal-close='close')  
--|--- div(class='fili-modal__content' data-modal='content') Контент
+<div  
+    class='fili-modal'  
+    data-modal-id='modal-two'>  
+    <span  
+        class='fili-modal__close-btn'  
+        data-modal-close='close'></span>  
+    <div  
+        class='fili-modal__content'  
+        data-modal='content'> Контент  
+    </div>  
+</div>  
       
 Модификатор data-modal-show="true" определяет, будет ли модальное окно показываться при загрузке страницы
 
