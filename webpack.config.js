@@ -69,7 +69,7 @@ module.exports = {
   mode: 'development',
   devtool: 'source-map',
   entry: [
-    '@babel/polyfill',
+    // '@babel/polyfill',
     './src/index.js',
   ],
   output: {

@@ -1,19 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+  if ('NodeList' in window && !NodeList.prototype.forEach) {
+    console.info('polyfill for IE11');
+    NodeList.prototype.forEach = function (callback, thisArg) {
+      thisArg = thisArg || window;
+      for (let i = 0; i < this.length; i++) {
+        callback.call(thisArg, this[i], i, this);
+      }
+    };
+  }
 
-  createModal('modal-one', true);
-  createModal('modal-two');
+  createModal();
 
-  function createModal(id, show: boolean = false): void {
-    const btn: HTMLElement = document.getElementById(id);
-    const modal: HTMLElement = document.querySelector(`[data-modal-id=${ id }]`);
-
-    if (!btn) return;
+  function createModal(): void {
+    const buttons = document.querySelectorAll(`[data-modal-button]`);
+    let modal = document.querySelector(`[data-modal-show="true"]`);
 
     /**
      * Объект, в котором содержится бизнес-логика
      */
     const _mainFuncs = {
-      showModal() {
+      showModal(e) {
+        e.preventDefault();
+        const id = this.dataset.modalButton;
+        modal = document.querySelector(`[data-modal-id=${ id }]`);
+
         modal.classList.remove('fili-modal--is-hidden');
         modal.classList.add('fili-modal--is-visible');
         _mainFuncs.createOverlay();
@@ -32,12 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
       destroyOverlay(el: HTMLElement) {
         document.body.removeChild(el);
       },
+      firstShow(modal) {
+        modal.classList.remove('fili-modal--is-hidden');
+        modal.classList.add('fili-modal--is-visible');
+        _mainFuncs.createOverlay();
+      },
     };
 
-    if (show) {
-      _mainFuncs.showModal();
+    if (modal) {
+      _mainFuncs.firstShow(modal);
     }
 
-    btn.addEventListener('click', _mainFuncs.showModal);
+    buttons.forEach(button => button.addEventListener('click', _mainFuncs.showModal));
   }
 });
