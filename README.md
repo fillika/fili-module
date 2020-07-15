@@ -26,5 +26,5 @@
 Кнопке присваиваем `data-modal-button='modal-two'`, значение data-атрибута совпадает с data-modal-id модального окна.
 
 # Команды
-Чтобы запустить development режим - npm start  
-Чтобы запустить режим сборки - npm run build
+Чтобы запустить development режим - **npm start**  
+Чтобы запустить режим сборки - **npm run build**
