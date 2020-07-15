@@ -9,39 +9,14 @@
   width: 95%;
   max-width: 800px;
   display: none;
-  max-height: 70%;
-  overflow-y: scroll;
   animation-duration: $mainTransition;
   animation-fill-mode: forwards;
   animation-timing-function: linear;
   z-index: 10000;
 
   @include minWidth($tablet) {
-    overflow-y: auto;
+    overflow-y: inherit;
   }
-
-  &::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-
-  &::-webkit-scrollbar-button {
-    background-color: transparent;
-    height: 0;
-  }
-
-  &::-webkit-scrollbar-track { background-color: #fff;}
-
-  &::-webkit-scrollbar-track-piece { background-color: #fff;}
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #99b3f8;
-    border-radius: 22px;
-  }
-
-  &::-webkit-scrollbar-corner { background-color: transparent;}
-
-  &::-webkit-resizer { background-color: transparent;}
 
   * {
     padding: 0;
@@ -62,8 +37,15 @@
 
   &__content {
     height: auto;
+    max-height: 350px;
+    overflow-y: scroll;
     background-color: #fff;
     padding: 1.5em;
+
+    @include minWidth($tablet) {
+      max-height: 500px;
+      overflow-y: inherit;
+    }
   }
 
   &__close-btn {
@@ -72,7 +54,7 @@
     position: absolute;
     display: inline-block;
     right: 0;
-    top: 0;
+    top: -1.5em;
     cursor: pointer;
 
     &:before,
@@ -83,7 +65,7 @@
       display: inline-block;
       height: 3px;
       border-radius: 10px;
-      background-color: #000;
+      background-color: #fff;
     }
 
     &:before {
