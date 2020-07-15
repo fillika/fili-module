@@ -21,9 +21,9 @@
 Модификатор data-modal-show="true" определяет, будет ли модальное окно показываться при загрузке страницы
 
 # Кнопка вывоза модального окна
-`button(data-modal-button='modal-one') Вызвать модальное окно`
+`button(data-modal-button='modal-two') Вызвать модальное окно`
 
-Кнопке присваиваем `data-modal-button='modal-one'`, значение data-атрибута совпадает с data-modal-id модального окна.
+Кнопке присваиваем `data-modal-button='modal-two'`, значение data-атрибута совпадает с data-modal-id модального окна.
 
 # Команды
 Чтобы запустить development режим - npm start  
