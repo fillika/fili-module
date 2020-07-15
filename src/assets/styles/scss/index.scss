@@ -1,70 +1,117 @@
 @import 'vars';
 @import 'mixins';
-@import 'atomic';
-@import '~@styles/css/fonts.css';
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  line-height: 1.25;
-  font-family: Ubuntu, sans-serif;
-}
+.fili-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-width: 800px;
+  display: none;
+  animation-duration: $mainTransition;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  z-index: 10000;
 
-body, html {
-  font-size: calc(13px + 100vw / 141);
-
-  @include minWidth($large) {
-    font-size: calc(10px + 100vw / 141);
+  @include minWidth($tablet) {
+    overflow-y: inherit;
   }
 
-  @include minWidth(1440px) {
-    font-size: 20px;
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    line-height: 1.25;
+  }
+
+  &--is-hidden {
+    display: block;
+    animation-name: hideModal;
+  }
+
+  &--is-visible {
+    display: block;
+    animation-name: showModal;
+  }
+
+  &__content {
+    height: auto;
+    max-height: 350px;
+    overflow-y: scroll;
+    background-color: #fff;
+    padding: 1.5em;
+
+    @include minWidth($tablet) {
+      max-height: 500px;
+      overflow-y: inherit;
+    }
+  }
+
+  &__close-btn {
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    display: inline-block;
+    right: 0;
+    top: -1.5em;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      display: inline-block;
+      height: 3px;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+
+    &:before {
+      top: 0.65em;
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      bottom: 0.65em;
+      transform: rotate(-45deg);
+    }
   }
 }
 
-a {
-  text-decoration: none;
-  display: inline-block;
-}
-
-li {
-  list-style: none;
-}
-
-img {
+.fili-overlay {
   width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  animation-fill-mode: forwards;
+  animation-duration: $mainTransition;
+  z-index: 9000;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
 }
 
-.visually-hidden {
-  position: absolute !important;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
-  overflow: hidden;
-  display: none !important;
+@keyframes hideModal {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -75%);
+    opacity: 0;
+  }
 }
 
-.cat {
-  width: 400px;
-  height: 400px;
-  background-image: url('~@img/cat.webp');
-  background-size: cover;
-}
-
-.instagram {
-  width: 400px;
-  height: 400px;
-  background-image: url('~@img/instagram.png');
-  background-size: cover;
-}
-
-.jpeg {
-  width: 400px;
-  height: 400px;
-  background-image: url('~@img/jpeg.jpg');
-  background-size: cover;
+@keyframes showModal {
+  from {
+    transform: translate(-50%, -75%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
 }
