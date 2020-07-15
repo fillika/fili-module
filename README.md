@@ -4,7 +4,7 @@
 
 Модальное окно создается по шаблону
 
-` | div(class='fili-modal' data-modal-id='modal-one' data-modal-show="true")  
+` | div(class='fili-modal' data-modal-id='modal-one' data-modal-show="true")     
   |-- span(class='fili-modal__close-btn' data-modal-close='close')  
   |-- div(class='fili-modal__content' data-modal='content') Контент`
       
