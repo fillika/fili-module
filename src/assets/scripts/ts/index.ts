@@ -26,9 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function openModal(button) {
       button.addEventListener('click', function () {
         const id = this.dataset.modalButton;
+
         modal = document.querySelector(`[data-modal-id="${ id }"]`); // Переопределяем модалку
 
-        init();
+        if (modal) {
+          init();
+        }
       });
     }
 
