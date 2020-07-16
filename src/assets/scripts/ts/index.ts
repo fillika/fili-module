@@ -13,10 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function filiModal() {
     const buttons = document.querySelectorAll(`[data-modal-button]`);
+    const overlay = createOverlay(); // Создаем overlay
+
     let modal = document.querySelector(`[data-modal-show="true"]`); // Если модалка должна открываться при загрузке
     // страницы
     let closeButton;
-    let overlay;
 
     if (modal) {
       init();
@@ -34,22 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Создание overlay
      */
-    function createOverlay() {
+    function createOverlay(): HTMLElement {
       const overlay = document.createElement('div');
-      overlay.classList.add('fili-overlay');
+      overlay.classList.add('fili-overlay', 'fili-overlay--is-hidden');
       document.body.appendChild(overlay);
       return overlay;
     }
 
-    function closeModal() {
+    function closeModal(): void {
       modal.classList.add('fili-modal--is-hidden');
       modal.classList.remove('fili-modal--is-visible');
 
-      overlay.classList.remove('fili-overlay');
-      document.body.removeChild(overlay);
-
-      closeButton.removeEventListener('click', closeModal);
-      overlay.removeEventListener('click', closeModal);
+      closeButton.removeEventListener('click', closeModal); // Удаляем обработчик
+      overlay.removeEventListener('click', closeModal); // Удаляем обработчик
+      overlay.classList.add('fili-overlay--is-hidden'); // Скрываем оверлей
 
       const timerID = setTimeout(function () {
         modal.classList.remove('fili-modal--is-hidden');
@@ -57,13 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 500);
     }
 
-    function init() {
+    function init(): void {
       closeButton = modal.querySelector('[data-modal-close="close"]');
-
-      overlay = createOverlay(); // Переопределяем оверлей
 
       modal.classList.remove('fili-modal--is-hidden');
       modal.classList.add('fili-modal--is-visible');
+      overlay.classList.remove('fili-overlay--is-hidden');
 
       closeButton.addEventListener('click', closeModal);
       overlay.addEventListener('click', closeModal);
