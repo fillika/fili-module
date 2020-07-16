@@ -49,7 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.add('fili-modal--is-hidden');
       modal.classList.remove('fili-modal--is-visible');
 
-      closeButton.removeEventListener('click', closeModal); // Удаляем обработчик
+      if (closeButton) {
+        closeButton.removeEventListener('click', closeModal); // Удаляем обработчик
+      }
+
       overlay.removeEventListener('click', closeModal); // Удаляем обработчик
       overlay.classList.add('fili-overlay--is-hidden'); // Скрываем оверлей
 
@@ -60,13 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function init(): void {
-      closeButton = modal.querySelector('[data-modal-close="close"]');
-
       modal.classList.remove('fili-modal--is-hidden');
       modal.classList.add('fili-modal--is-visible');
       overlay.classList.remove('fili-overlay--is-hidden');
 
-      closeButton.addEventListener('click', closeModal);
+      closeButton = modal.querySelector('[data-modal-close="close"]');
+
+      if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+      }
+
       overlay.addEventListener('click', closeModal);
     }
 
