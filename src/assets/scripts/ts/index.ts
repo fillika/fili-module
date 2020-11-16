@@ -34,6 +34,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+
+    /**
+     * Метод для вызова сторонним скриптом модального окна.
+     * @param {string} id - это data-modal-id
+     */
+    (<any>window).filiModalOpen = function openModalWithScripts(id: string): void {
+      modal = document.querySelector(`[data-modal-id="${ id }"]`); // Переопределяем модалку
+
+      if (modal) {
+        init();
+      }
+    };
+
     /**
      * Создание overlay
      */
