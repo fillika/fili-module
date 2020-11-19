@@ -49,33 +49,16 @@
   }
 
   &__close-btn {
-    width: 1.5em;
-    height: 1.5em;
+    width: $closeButton;
+    height: $closeButton;
     position: absolute;
     display: inline-block;
     right: 0;
-    top: -1.5em;
+    top: -$closeButton;
     cursor: pointer;
 
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
+    img {
       width: 100%;
-      display: inline-block;
-      height: 3px;
-      border-radius: 10px;
-      background-color: #fff;
-    }
-
-    &:before {
-      top: 0.65em;
-      transform: rotate(45deg);
-    }
-
-    &:after {
-      bottom: 0.65em;
-      transform: rotate(-45deg);
     }
   }
 }
