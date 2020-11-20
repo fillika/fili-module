@@ -26,14 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function openModal(button: Node): void {
       button.addEventListener("click", function (this: HTMLElement): void {
         const id = this.dataset.modalButton;
-        modal = document.querySelector(`[data-modal-id="${id}"]`); // Переопределяем модалку
+        modal = document.querySelector(`[data-modal-id="${ id }"]`); // Переопределяем модалку
 
         if (modal) {
           init();
         }
       });
     }
-
 
     /**
      * Метод для вызова сторонним скриптом модального окна.
@@ -58,8 +57,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function closeModal(): void {
+      const id = modal?.getAttribute('data-modal-id');
       modal?.classList.add("fili-modal--is-hidden");
       modal?.classList.remove("fili-modal--is-visible");
+
+      if (typeof id === 'string') {
+        const event = new Event(id + '-close', { bubbles: true });
+        document.dispatchEvent(event);
+      }
 
       closeButton.forEach((btn: Node) =>
         btn.removeEventListener("click", closeModal)
@@ -75,11 +80,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function init(): void {
-      modal?.classList.remove("fili-modal--is-hidden");
-      modal?.classList.add("fili-modal--is-visible");
-      overlay.classList.remove("fili-overlay--is-hidden");
-
       if (modal) {
+        const id = modal?.getAttribute('data-modal-id');
+
+        modal.classList.remove("fili-modal--is-hidden");
+        modal.classList.add("fili-modal--is-visible");
+        overlay.classList.remove("fili-overlay--is-hidden");
+
+        if (typeof id === 'string') {
+          const event = new Event(id + '-close', { bubbles: true });
+          document.dispatchEvent(event);
+        }
+
         closeButton = modal.querySelectorAll('[data-modal-close="close"]');
       }
 
