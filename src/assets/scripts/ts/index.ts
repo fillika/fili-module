@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   if ("NodeList" in window && !NodeList.prototype.forEach) {
-    console.info("polyfill for IE11");
     NodeList.prototype.forEach = function (callback, thisArg) {
       thisArg = thisArg || window;
       for (let i = 0; i < this.length; i++) {
@@ -8,6 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
   }
+
+  (function () {
+    if (typeof window.CustomEvent === 'function') return false;
+    function CustomEvent(event: any, params: any) {
+      params = params || { bubbles: false, cancelable: false, detail: null };
+      const evt = document.createEvent('CustomEvent');
+      evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+      return evt;
+    }
+
+    (<any>window).CustomEvent = CustomEvent;
+  })();
 
   filiModal();
 
@@ -51,7 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     function createOverlay(): HTMLElement {
       const overlay = document.createElement("div");
-      overlay.classList.add("fili-overlay", "fili-overlay--is-hidden");
+      overlay.classList.add("fili-overlay");
+      overlay.classList.add("fili-overlay--is-hidden");
       document.body.appendChild(overlay);
       return overlay;
     }
@@ -62,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
       modal?.classList.remove("fili-modal--is-visible");
 
       if (typeof id === 'string') {
-        const event = new Event(id + '-close', { bubbles: true });
+        const event = new CustomEvent(id + '-close', { bubbles: true });
         document.dispatchEvent(event);
       }
 
@@ -88,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.classList.remove("fili-overlay--is-hidden");
 
         if (typeof id === 'string') {
-          const event = new Event(id + '-close', { bubbles: true });
+          const event = new CustomEvent(id + '-open', { bubbles: true });
           document.dispatchEvent(event);
         }
 
@@ -107,4 +119,17 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     buttons.forEach(openModal);
   }
+
+  /**
+   * События УДАЛИТЬ!!!
+   * Здесь они, чтобы показать, как это работает
+   */
+  document.addEventListener('modal-one-open', () => console.log('modal-one-open'));
+  document.addEventListener('modal-one-close', () => console.log('modal-one-close'));
+
+  document.addEventListener('modal-two-open', () => console.log('modal-two-open'));
+  document.addEventListener('modal-two-close', () => console.log('modal-two-close'));
+
+  document.addEventListener('modal-three-open', () => console.log('modal-three-open'));
+  document.addEventListener('modal-three-close', () => console.log('modal-three-close'));
 });
