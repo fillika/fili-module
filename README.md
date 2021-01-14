@@ -33,6 +33,8 @@ document.addEventListener('modal-one-open', () => console.log('modal-one-open'))
 
 document.addEventListener('modal-one-close', () => console.log('modal-one-close'));
 
+Чтобы вызвать модальное окно вручную, нужно запустите глобально функцию *filiModalOpen(id)* указав ID нужного модального окна
+
 # Команды
 Чтобы запустить development режим - **npm start**  
 Чтобы запустить режим сборки - **npm run build**
