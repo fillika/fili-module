@@ -30,6 +30,7 @@
 при открытии и закрытии окна
 
 document.addEventListener('modal-one-open', () => console.log('modal-one-open'));
+
 document.addEventListener('modal-one-close', () => console.log('modal-one-close'));
 
 # Команды
