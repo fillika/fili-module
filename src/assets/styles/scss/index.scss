@@ -35,7 +35,6 @@
     max-height: 350px;
     overflow-y: scroll;
     background-color: #fff;
-    padding: 1.5em;
 
     @include minWidth($tablet) {
       max-height: 500px;
