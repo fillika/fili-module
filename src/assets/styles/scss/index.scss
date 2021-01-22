@@ -6,8 +6,6 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 95%;
-  max-width: 800px;
   display: none;
   animation-duration: $mainTransition;
   animation-fill-mode: forwards;
@@ -37,13 +35,10 @@
 
   &__content {
     height: auto;
-    max-height: 350px;
     overflow-y: scroll;
     background-color: #fff;
-    padding: 1.5em;
 
     @include minWidth($tablet) {
-      max-height: 500px;
       overflow-y: inherit;
     }
   }
@@ -101,4 +96,12 @@
     transform: translate(-50%, -50%);
     opacity: 1;
   }
+}
+
+.cls-1{
+  fill:none;
+  stroke: #fff;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-width:2px;
 }

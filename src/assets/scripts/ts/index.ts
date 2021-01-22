@@ -1,15 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if ("NodeList" in window && !NodeList.prototype.forEach) {
-    NodeList.prototype.forEach = function (callback, thisArg) {
-      thisArg = thisArg || window;
-      for (let i = 0; i < this.length; i++) {
-        callback.call(thisArg, this[i], i, this);
-      }
-    };
-  }
-
   (function () {
     if (typeof window.CustomEvent === 'function') return false;
+
     function CustomEvent(event: any, params: any) {
       params = params || { bubbles: false, cancelable: false, detail: null };
       const evt = document.createEvent('CustomEvent');
@@ -49,11 +41,16 @@ document.addEventListener("DOMContentLoaded", () => {
      * Метод для вызова сторонним скриптом модального окна.
      * @param {string} id - это data-modal-id
      */
-    (<any>window).filiModalOpen = function openModalWithScripts(id: string): void {
-      modal = document.querySelector(`[data-modal-id="${ id }"]`); // Переопределяем модалку
+    (<any>window).filiModal = {
+      open: function (id: string): void {
+        modal = document.querySelector(`[data-modal-id="${ id }"]`); // Переопределяем модалку
 
-      if (modal) {
-        init();
+        if (modal) {
+          init();
+        }
+      },
+      close: function () {
+
       }
     };
 
@@ -119,17 +116,4 @@ document.addEventListener("DOMContentLoaded", () => {
      */
     buttons.forEach(openModal);
   }
-
-  /**
-   * События УДАЛИТЬ!!!
-   * Здесь они, чтобы показать, как это работает
-   */
-  document.addEventListener('modal-one-open', () => console.log('modal-one-open'));
-  document.addEventListener('modal-one-close', () => console.log('modal-one-close'));
-
-  document.addEventListener('modal-two-open', () => console.log('modal-two-open'));
-  document.addEventListener('modal-two-close', () => console.log('modal-two-close'));
-
-  document.addEventListener('modal-three-open', () => console.log('modal-three-open'));
-  document.addEventListener('modal-three-close', () => console.log('modal-three-close'));
 });
