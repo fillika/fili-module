@@ -16,10 +16,6 @@
   animation-timing-function: linear;
   z-index: 10000;
 
-  @include minWidth($tablet) {
-    overflow-y: inherit;
-  }
-
   * {
     box-sizing: border-box;
   }
@@ -40,7 +36,7 @@
     background-color: #fff;
 
     @include minWidth($tablet) {
-      overflow-y: inherit;
+      overflow-y: scroll;
     }
   }
 
