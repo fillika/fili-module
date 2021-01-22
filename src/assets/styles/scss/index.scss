@@ -1,6 +1,10 @@
 @import 'vars';
 @import 'mixins';
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .fili-modal {
   position: fixed;
   left: 50%;
