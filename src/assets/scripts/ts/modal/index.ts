@@ -4,6 +4,7 @@ import closeModalButtons from "./closeModalButtons";
 import openModal from "./openModal";
 import closeModal from "./closeModal";
 import filiModalGlobal from "./filiModalGlobal";
+import { filiModule } from "../core";
 
 type config = {
   showClassName?: string;
@@ -47,11 +48,8 @@ function filiModal(config?: config) {
   filiModalGlobal(state);
 }
 
-(<any>window).filiModule = {
-  modal: {
-    init: filiModal,
-    open: undefined,
-  },
+filiModule.modal = {
+  init: filiModal
 };
 
-filiModule.modal.init();
+// filiModule.modal.init();
