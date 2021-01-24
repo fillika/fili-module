@@ -8,7 +8,7 @@ import filiModalGlobal from "./filiModalGlobal";
 type config = {
   showClassName?: string;
   hideClassName?: string;
-  baseIndex?: number;
+  baseZIndex?: number;
   delay?: number;
 };
 
@@ -25,7 +25,7 @@ function filiModal(config?: config) {
     initConfig: {
       showClassName: "filiModalFadeInDown",
       hideClassName: "filiModalFadeOutUp",
-      baseIndex: 10000,
+      baseZIndex: 10000,
       delay: 450,
     },
     modal: document.querySelector(`[data-modal-show="true"]`),
@@ -42,9 +42,9 @@ function filiModal(config?: config) {
   }
 
   state.overlay.addEventListener("click", () => closeModal(state));
-  filiModalGlobal(state);
   addListenersOnButtons(state);
   closeModalButtons(state);
+  filiModalGlobal(state);
 }
 
 (<any>window).filiModule = {
@@ -54,4 +54,4 @@ function filiModal(config?: config) {
   },
 };
 
-// filiModule.modal.init();
+filiModule.modal.init();

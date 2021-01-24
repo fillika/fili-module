@@ -15,9 +15,9 @@ export default function openModal(state: state): void {
     state.modal.classList.add("fili-modal--is-visible", showClassName); // Добавляем класс для показа модалки
     state.overlay.classList.remove("fili-overlay--is-hidden");
 
-    if (state.initConfig.baseIndex) {
-      state.initConfig.baseIndex++; // Увеличиваю zIndex
-      state.modal.style.zIndex = state.initConfig.baseIndex.toString();
+    if (state.initConfig.baseZIndex) {
+      state.initConfig.baseZIndex++; // Увеличиваю zIndex
+      state.modal.style.zIndex = state.initConfig.baseZIndex.toString();
     }
 
     // Добавляю модалки в очередь. Тут все открытые модалки

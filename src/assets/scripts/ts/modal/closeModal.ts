@@ -15,9 +15,9 @@ export default function closeModal(state: state): void {
       state.modal.classList.add("fili-modal--is-hidden", hideClassName);
       state.modal.classList.remove("fili-modal--is-visible", showClassName);
 
-      if (state.initConfig.baseIndex) {
-        state.initConfig.baseIndex--; // Увеличиваю zIndex
-        state.modal.style.zIndex = state.initConfig.baseIndex.toString();
+      if (state.initConfig.baseZIndex) {
+        state.initConfig.baseZIndex--; // Увеличиваю zIndex
+        state.modal.style.zIndex = state.initConfig.baseZIndex.toString();
       }
 
       resolve(state.modal);
