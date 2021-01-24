@@ -1,4 +1,5 @@
 import { state } from "./index";
+import { createEvent } from "./utils";
 
 export default function closeModal(state: state): void {
   const id = state.modal?.getAttribute("data-modal-id");
@@ -36,10 +37,7 @@ export default function closeModal(state: state): void {
     return modalId !== id;
   });
 
-  if (typeof id === "string") {
-    const event = new CustomEvent(id + "-close", { bubbles: true });
-    document.dispatchEvent(event);
-  }
+  createEvent(id, '-close');
 
   /**
    * Здесь мы проверяем очередь и если у нас открыто более 1 модального окна,

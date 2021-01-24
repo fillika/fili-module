@@ -1,4 +1,5 @@
 import { state } from "./index";
+import { createEvent } from "./utils";
 
 export default function openModal(state: state): void {
   if (state.modal) {
@@ -21,10 +22,6 @@ export default function openModal(state: state): void {
 
     // Добавляю модалки в очередь. Тут все открытые модалки
     state.modalQueue.push(state.modal);
-
-    if (typeof id === "string") {
-      const event = new CustomEvent(id + "-open", { bubbles: true });
-      document.dispatchEvent(event);
-    }
+    createEvent(id, '-open');
   }
 }

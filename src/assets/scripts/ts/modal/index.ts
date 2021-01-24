@@ -54,4 +54,4 @@ function filiModal(config?: config) {
   },
 };
 
-filiModule.modal.init();
+// filiModule.modal.init();
