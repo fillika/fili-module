@@ -22,18 +22,37 @@
 
   &--is-hidden {
     display: block;
-    animation-name: hideModal;
   }
 
   &--is-visible {
     display: block;
-    animation-name: showModal;
   }
 
   &__content {
     height: auto;
     overflow-y: scroll;
-    background-color: #fff;
+    background-color: #FFF;
+
+    //for firefox
+    scrollbar-width: thin;
+    scrollbar-color: gray lightgray;
+
+    &::-webkit-scrollbar {
+      width: 3vw;
+      height: 3vw;
+      max-width: 7px;
+      max-height: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: lightgray;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: gray;
+      border-radius: 40px;
+      border: 1px solid gray;
+    }
 
     @include minWidth($tablet) {
       overflow-y: scroll;
@@ -73,6 +92,14 @@
   }
 }
 
+.filiModalFadeInDown {
+  animation-name: showModal;
+}
+
+.filiModalFadeOutUp {
+  animation-name: hideModal;
+}
+
 @keyframes hideModal {
   from {
     transform: translate(-50%, -50%);
@@ -95,10 +122,51 @@
   }
 }
 
-.cls-1{
-  fill:none;
-  stroke: #fff;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  stroke-width:2px;
+.show-custom {
+  animation-name: backInDown;
+}
+.hide-custom {
+  animation-name: backOutLeft;
+}
+
+@keyframes backInDown {
+  0% {
+    transform: translateX(-50%) translateY(-1200px) scale(.7);
+    opacity: .7
+  }
+
+  80% {
+    transform: translateX(-50%) translateY(-50%) scale(.7);
+    opacity: .7
+  }
+
+  to {
+    transform: translateX(-50%) translateY(-50%) scale(1);
+    opacity: 1
+  }
+}
+
+@keyframes backOutLeft {
+  0% {
+    transform: translateY(-50%) translateX(-50%) scale(1);
+    opacity: 1
+  }
+
+  20% {
+    transform: translateY(-50%) translateX(-50%) scale(.7);
+    opacity: .7
+  }
+
+  to {
+    transform: translateY(-50%) translateX(-2000px) scale(.7);
+    opacity: .7
+  }
+}
+
+.cls-1 {
+  fill: none;
+  stroke: #FFF;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
 }

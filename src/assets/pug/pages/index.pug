@@ -12,34 +12,22 @@ html(lang='ru')
     button(data-modal-button='modal-two') Жми еще
     button(data-modal-button='modal-three') Третья модалка
 
-    div(style='width: 500px').
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci  alias excepturi iusto pariatur qui, quidem
-      quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit
-      amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae
-        repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur
-        adipisicing  elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam
-        .  Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Adipisci  alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur
-        cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias
-        excepturi  iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate  dicta
-         dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iust o
-         pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum  ea
-         erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur  qui,
-         quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem  ipsum
-         dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem  quod
-         ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit  amet,
-         consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea erLorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea er
+    include ../partials/blank-text
 
     div(class='fili-modal' data-modal-id='modal-one' data-modal-show="true")
       span(class='fili-modal__close-btn' data-modal-close='close')
         include ../partials/close
-      div(class='fili-modal__content' data-modal='content') Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea error est eum fugit hic incidunt maxime nobis odit perferendis quae quasi qui quibusdam quisquam sequi voluptas, voluptate. Eveniet excepturi facilis nesciunt quia tenetur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea error est eum fugit hic incidunt maxime nobis odit perferendis quae quasi qui quibusdam quisquam sequi voluptas, voluptate. Eveniet excepturi facilis nesciunt quia tenetur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea error est eum fugit hic incidunt maxime nobis odit perferendis quae quasi qui quibusdam quisquam sequi voluptas, voluptate. Eveniet excepturi facilis nesciunt quia tenetur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias excepturi iusto pariatur qui, quidem quod ratione recusandae repellat totam. Ad aspernatur cupiditate dicta dolorum ea error est eum fugit hic incidunt maxime nobis odit perferendis quae quasi qui quibusdam quisquam sequi voluptas, voluptate. Eveniet excepturi facilis nesciunt quia tenetur.
+      div(class='fili-modal__content' data-modal='content')
+        div(style='width: 500px; height: 500px') Модальное окно 1
     div(class='fili-modal' data-modal-id='modal-two')
       span(class='fili-modal__close-btn' data-modal-close='close')
         include ../partials/close
-      div(class='fili-modal__content' data-modal='content') Тут совсем другой лорем
+      div(class='fili-modal__content' data-modal='content')
+        div(style='width: 600px; height: 600px') Модальное окно 2
     div(class='fili-modal' data-modal-id='modal-three')
       span(class='fili-modal__close-btn' data-modal-close='close')
         include ../partials/close
-      div(class='fili-modal__content' data-modal='content') Третье модальное окно
+      div(class='fili-modal__content' data-modal='content')
+        div(style='width: 620px; height: 620px') Модальное окно 3
+
     include ../partials/footer
