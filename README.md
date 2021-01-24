@@ -1,5 +1,7 @@
 # Шаблон модального окна
+
 **WARNING**
+
 **Не будет работать в IE 11**
 
 Модальное окно создается по шаблону  
@@ -30,6 +32,7 @@
 при открытии и закрытии окна
 
 document.addEventListener('modal-one-open', () => console.log('modal-one-open'));
+
 document.addEventListener('modal-one-close', () => console.log('modal-one-close'));
 
 # Функционал
