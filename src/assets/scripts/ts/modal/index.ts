@@ -4,7 +4,6 @@ import closeModalButtons from "./closeModalButtons";
 import openModal from "./openModal";
 import closeModal from "./closeModal";
 import filiModalGlobal from "./filiModalGlobal";
-import { filiModule } from "../core";
 
 type config = {
   showClassName?: string;
@@ -20,7 +19,7 @@ export type state = {
   overlay: HTMLElement;
 };
 
-function filiModal(config?: config) {
+export function filiModal(config?: config) {
   const state: state = {
     modalQueue: [], // Очередь из попапов,
     initConfig: {
@@ -47,9 +46,3 @@ function filiModal(config?: config) {
   closeModalButtons(state);
   filiModalGlobal(state);
 }
-
-filiModule.modal = {
-  init: filiModal
-};
-
-// filiModule.modal.init();

@@ -1,2 +1,2 @@
-import '@scripts/ts/modal/index.ts';
+import '@scripts/ts/core/index.ts';
 import '@styles/scss/index.scss';
