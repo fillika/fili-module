@@ -2,7 +2,6 @@ import { filiModal } from "../modal";
 import { switchBanners } from "../switchBanners";
 
 let instance: any;
-
 class FiliModule {
   constructor() {
     if (!instance) instance = this;
@@ -18,5 +17,6 @@ export const filiModule = new FiliModule();
 };
 
 (<any>filiModule).switchBanners = {
-  loadBanner: switchBanners.loadBanner
+  loadBanner: switchBanners.loadBanner,
+  load: switchBanners.loadBanner,
 };
